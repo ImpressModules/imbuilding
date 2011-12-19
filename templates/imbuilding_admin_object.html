@@ -1,0 +1,14 @@
+<{if $modules_breadcrumb}><{$modules_breadcrumb}><{/if}>
+<{if $imbuilding_object_title}><h1><{$imbuilding_object_title}></h1><{/if}>
+<{if $imbuilding_object_info}><p><{$imbuilding_object_info}></p><{/if}>
+<{if $imbuilding_object_table}><{$imbuilding_object_table}><{/if}>
+<{if $addobject}>
+<h1><{$imbuilding_form_header}></h1>
+<p><{$imbuilding_form_header_info}></p>
+<{includeq file='db:system_common_form.html' form=$addobject}>
+<{/if}>
+<{if $imbuilding_object_singleview}><{$imbuilding_object_singleview}><{/if}>
+<{if $imbuilding_field_table}>
+<h1><{$smarty.const._AM_IMBUILDING_FIELDS_OF_OBJECT}></h1>
+<{$imbuilding_field_table}>
+<{/if}>

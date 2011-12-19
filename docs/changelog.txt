@@ -1,0 +1,24 @@
+imBuilding Changelog
+
+=== imBuilding 2.0 Final ===
+Release date: 18 Sept 2011
+Revision: 22688
+
+'''Fixed'''
+#251: required folders are missing after installation (phoenyx)
+#252: added support for more object types and fixed broken ones (phoenyx)
+#623: tabs are not highlighted properly (phoenyx)
+
+'''Added'''
+#624: allow to create simple foreign key relationships (phoenyx)
+#625: display log after module was generated (phoenyx)
+
+'''Improved'''
+#621: Update imBuilding for 1.3 (phoenyx)
+#622: codebase cleanup (applied coding standards) (phoenyx)
+
+=== imBuilding 1.0 Final ===
+Release date: 12/23/2009
+
+See the changelog on ImpressCMS Addons Trac:
+http://trac.impresscms.org/addons/log/modules/imbuilding/releases/imbuilding_1.0_final

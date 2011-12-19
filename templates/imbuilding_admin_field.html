@@ -1,0 +1,10 @@
+<{if $modules_breadcrumb}><{$modules_breadcrumb}><{/if}>
+<{if $imbuilding_field_title}><h1><{$imbuilding_field_title}></h1><{/if}>
+<{if $imbuilding_field_info}><p><{$imbuilding_field_info}></p><{/if}>
+<{if $imbuilding_field_table}><{$imbuilding_field_table}><{/if}>
+<{if $addfield}>
+<h1><{$imbuilding_form_header}></h1>
+<p><{$imbuilding_form_header_info}></p>
+<{includeq file='db:system_common_form.html' form=$addfield}>
+<{/if}>
+<{if $imbuilding_field_singleview}><{$imbuilding_field_singleview}><{/if}>

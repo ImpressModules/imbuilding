@@ -1,0 +1,10 @@
+<div class="basemodule_headertable">
+	<{if $basemodule_module_home}>
+	<span class="basemodule_modulename"><{$basemodule_module_home}></span>
+	<{/if}>
+	<{if $basemodule_category_path}>
+	<span class="basemodule_breadcrumb"><{if $basemodule_module_home}>&gt;<{/if}><{$basemodule_category_path}></span>
+	<{/if}>
+</div>
+
+<div id="basemodule_submit" style="clear: both;"><{if $basemodule_showSubmitLink && $basemodule_userCanSubmit}><a href="<{$basemodule_url}>post.php?op=mod"><{$smarty.const._MI_BASEMODULE_POST_ADD}></a><{/if}></div>
