@@ -34,6 +34,7 @@ class mod_imbuilding_Object extends icms_ipf_Object {
 		$this->quickInitVar('object_doxcode', XOBJ_DTYPE_INT);
 		$this->quickInitVar('enable_seo', XOBJ_DTYPE_INT);
 		$this->quickInitVar('sort', XOBJ_DTYPE_INT, TRUE, FALSE, FALSE, 0);
+		$this->initCommonVar("dohtml", false, true);
 		$this->initNonPersistableVar('new_module_wizard', XOBJ_DTYPE_INT);
 		$this->initNonPersistableVar('enable_upload', XOBJ_DTYPE_INT);
 

@@ -31,7 +31,7 @@ class mod_imbuilding_Field extends icms_ipf_Object {
 		$this->quickInitVar('field_required', XOBJ_DTYPE_INT);
 		$this->initNonPersistableVar('another', 'field', XOBJ_DTYPE_INT);
 		$this->initNonPersistableVar('new_module_wizard', XOBJ_DTYPE_INT);
-
+		$this->initCommonVar("dohtml", false, true);
 		$this->hideFieldFromForm(array('object_id', 'field_extra'));
 		$this->hideFieldFromSingleView('object_id');
 		$this->showFieldOnForm('another');
