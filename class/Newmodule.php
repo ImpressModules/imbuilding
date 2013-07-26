@@ -671,17 +671,50 @@ class mod_imbuilding_Newmodule {
 		return $ret;
 	}
 
-	/**
+
+    /**
+     * public function addDir($path) {
+    print 'adding ' . $path . '<br>';
+    $this->addEmptyDir($path);
+    $nodes = glob($path . '/*');
+    foreach ($nodes as $node) {
+    print $node . '<br>';
+    if (is_dir($node)) {
+    $this->addDir($node);
+    } else if (is_file($node))  {
+    $this->addFile($node);
+    }
+    }
+    }
+     */
+    /**
 	 * Generate zip archive of generated module source
 	 */
 	private function createArchive() {
 		//icms::$logger->disableLogger();
-		include_once IMBUILDING_ROOT_PATH . 'include/easyarchives/EasyArchive.class.php';
-		$arch = new archive;
+
+        $arch = new ZipArchive();
+
 		$fileName = $this->moduleinfo['modulename'] . '_' . time() . '.zip';
+
+
+
+
 		$archiveFilePath = ICMS_UPLOAD_PATH . '/imbuilding/packages/' . $fileName;
 		$archiveSource = ICMS_CACHE_PATH . '/imbuilding/' . $this->moduleinfo['modulename'];
-		$arch->make($archiveSource, $archiveFilePath);
+
+        $arch->addEmptyDir($archiveSource);
+        $nodes = glob($archiveSource . '/*');
+        foreach ($nodes as $node) {
+            print $node . '<br>';
+            if (is_dir($node)) {
+                $this->addDir($node);
+            } else if (is_file($node))  {
+                $this->addFile($node);
+            }
+        }
+        $arch->close();
+
 		$this->archiveUrl = ICMS_UPLOAD_URL . '/imbuilding/packages/' . $fileName;
 	}
 
