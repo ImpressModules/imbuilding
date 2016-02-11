@@ -1,0 +1,27 @@
+{
+  "name": "vendor_name/package_name",
+  "description": "A module to help you jumpstart development of ImpressCMS modules",
+  "minimum-stability": "beta",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "David Janssens (fiammybe)",
+      "email": "david.j@impresscms.org"
+    },
+    {
+      "name": "INBOX International Inc.",
+      "email": "info@inboxintl.com"
+    },
+    {
+      "name": "Steve Kenow (skenow)",
+      "email": "skenow@impresscms.org"
+    },
+    {
+      "name": "René Sato (sato-san)",
+      "email": "sato-san@impresscms.org"
+    },
+    {
+      "name": "Steffen Floher (QM-B)"
+    }
+  ]
+}
