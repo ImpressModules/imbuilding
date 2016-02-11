@@ -1,5 +1,5 @@
 {
-  "name": "vendor_name/package_name",
+  "name": "impresscms/impresscms-module-imbuilding",
   "description": "A module to help you jumpstart development of ImpressCMS modules",
   "minimum-stability": "beta",
   "license": "GPL",
