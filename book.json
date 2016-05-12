@@ -1,7 +1,6 @@
 {
     "plugins": [
-        "add-header",
-        "autocover"
+        "add-header"
     ],
     "pluginsConfig": {}
 }
