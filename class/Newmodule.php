@@ -672,16 +672,45 @@ class mod_imbuilding_Newmodule {
 	}
 
 	/**
-	 * Generate zip archive of generated module source
+	 * Generate zip archive of generated module source - based heavily on
+	 * this response in stackoverflow :
+	 * http://stackoverflow.com/questions/4914750/how-to-zip-a-whole-folder-using-php
 	 */
 	private function createArchive() {
 		//icms::$logger->disableLogger();
-		include_once IMBUILDING_ROOT_PATH . 'include/easyarchives/EasyArchive.class.php';
-		$arch = new archive;
+
+		$zip = new ZipArchive();
+
 		$fileName = $this->moduleinfo['modulename'] . '_' . time() . '.zip';
 		$archiveFilePath = ICMS_UPLOAD_PATH . '/imbuilding/packages/' . $fileName;
 		$archiveSource = ICMS_CACHE_PATH . '/imbuilding/' . $this->moduleinfo['modulename'];
-		$arch->make($archiveSource, $archiveFilePath);
+
+		$zip->open($archiveFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+
+		// Create recursive directory iterator
+		/** @var SplFileInfo[] $files */
+		$files = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator($archiveSource),
+			RecursiveIteratorIterator::LEAVES_ONLY
+		);
+
+		foreach ($files as $name => $file)
+		{
+			// Skip directories (they would be added automatically)
+			if (!$file->isDir())
+			{
+				// Get real and relative path for current file
+				$filePath = $file->getRealPath();
+				$relativePath = substr($filePath, strlen($rootPath) + 1);
+
+				// Add current file to archive
+				$zip->addFile($filePath, $relativePath);
+			}
+		}
+
+		// Zip archive will be created only after closing object
+		$zip->close();
+
 		$this->archiveUrl = ICMS_UPLOAD_URL . '/imbuilding/packages/' . $fileName;
 	}
 
