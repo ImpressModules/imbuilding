@@ -17,14 +17,14 @@ defined("ICMS_ROOT_PATH") or die("ICMS root path not defined");
 $modversion = array(
 /**  General Information  */
 	"name"						=> _MI_IMBUILDING_MD_NAME,
-	"version"					=> 2.0,
+	"version"					=> 2.1,
 	"description"				=> _MI_IMBUILDING_MD_DESC,
 	"author"					=> "The SmartFactory",
 	"credits"					=> "INBOX International inc.",
 	"help"						=> "",
 	"license"					=> "GNU General Public License (GPL)",
 	"official"					=> 1,
-	"dirname"					=> basename(dirname(__FILE__)),
+	"dirname"					=> basename(__DIR__),
 	"modname"					=> "imbuilding",
 
 /**  Images information  */
@@ -35,7 +35,7 @@ $modversion = array(
 /**  Development information */
 	"status_version"			=> "Final",
 	"status"					=> "Final",
-	"date"						=> "18 Sept 2011",
+	"date"						=> date('Y-m-d', filemtime(__FILE__)),
 	"author_word"				=> "",
 	"warning"					=> _CO_ICMS_WARNING_FINAL,
 
@@ -43,7 +43,7 @@ $modversion = array(
 	"developer_website_url"		=> "http://inboxinternational.com",
 	"developer_website_name"	=> "INBOX International inc.",
 	"developer_email"			=> "info@inboxintl.com",
-		
+
 /** Administrative information */
 	"hasAdmin"					=> 1,
 	"adminindex"				=> "admin/index.php",
@@ -76,4 +76,5 @@ $modversion["templates"] = array(
 	array("file" => "imbuilding_admin_module.html", "description" => "Module admin template"),
 	array("file" => "imbuilding_admin_object.html", "description" => "Object Admin template"),
 	array("file" => "imbuilding_admin_field.html", "description" => "Field Admin template"),
-	array("file" => "imbuilding_requirements.html", "description" => "Requirements"));
+	array("file" => "imbuilding_requirements.html", "description" => "Requirements")
+);
