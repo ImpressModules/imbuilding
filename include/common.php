@@ -11,7 +11,7 @@
 
 defined("ICMS_ROOT_PATH") or die("ICMS root path not defined");
 
-if (!defined("IMBUILDING_DIRNAME")) define("IMBUILDING_DIRNAME", $modversion["dirname"] = basename(dirname(dirname(__FILE__))));
+if (!defined("IMBUILDING_DIRNAME")) define("IMBUILDING_DIRNAME", $modversion["dirname"] = basename(dirname(__FILE__, 2)));
 if (!defined("IMBUILDING_URL")) define("IMBUILDING_URL", ICMS_URL . "/modules/" . IMBUILDING_DIRNAME . "/");
 if (!defined("IMBUILDING_ROOT_PATH")) define("IMBUILDING_ROOT_PATH", ICMS_ROOT_PATH . "/modules/" . IMBUILDING_DIRNAME . "/");
 if (!defined("IMBUILDING_IMAGES_URL")) define("IMBUILDING_IMAGES_URL", IMBUILDING_URL . "images/");

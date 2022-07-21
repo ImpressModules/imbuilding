@@ -12,4 +12,3 @@ imBuilding is an ImpressCMS module that you run on a ImpressCMS website. That me
 
 ## the imBuilding workflow
 Modules created in imBuilding work with IPF, the ImpressCMS Persistable Framework. imBuilding will help you create the required elements of your module. At the moment, imBuilding supports the creation of multiple modules that contain multiple object types.
-A normal workflow to create a new module is as follows:
