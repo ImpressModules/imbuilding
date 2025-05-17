@@ -13,16 +13,17 @@
  */
 
 defined("ICMS_ROOT_PATH") or die("ICMS root path not defined");
+$composer_json = json_decode(file_get_contents(__DIR__ . "/composer.json"), true);
 
 $modversion = array(
 /**  General Information  */
-	"name"						=> _MI_IMBUILDING_MD_NAME,
-	"version"					=> 2.1,
-	"description"				=> _MI_IMBUILDING_MD_DESC,
+	"name"						=> $composer_json["name"],
+	"version"					=> '2.2',
+	"description"				=> $composer_json['description'],
 	"author"					=> "The SmartFactory",
 	"credits"					=> "INBOX International inc.",
 	"help"						=> "",
-	"license"					=> "GNU General Public License (GPL)",
+	"license"					=> $composer_json['license'],
 	"official"					=> 1,
 	"dirname"					=> basename(__DIR__),
 	"modname"					=> "imbuilding",
@@ -33,11 +34,11 @@ $modversion = array(
 	"image"						=> "images/icon_big.png", /* for backward compatibility */
 
 /**  Development information */
-	"status_version"			=> "Final",
-	"status"					=> "Final",
+	"status"					=> "Beta",
+    "status_version"			=> $modversion['version'] . " " . $modversion['status'],
 	"date"						=> date('Y-m-d', filemtime(__FILE__)),
 	"author_word"				=> "",
-	"warning"					=> _CO_ICMS_WARNING_FINAL,
+	"warning"					=> _CO_ICMS_WARNING_BETA,
 
 /** Contributors */
 	"developer_website_url"		=> "http://inboxinternational.com",
