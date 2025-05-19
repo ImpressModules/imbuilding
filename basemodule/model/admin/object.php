@@ -18,16 +18,16 @@
  * @param int $item_id Itemid to be edited
 */
 function edititem($item_id = 0) {
-	global $basemodule_item_handler, $icmsModule, $icmsAdminTpl;
+	global $basemodule_item_handler, $icmsAdminTpl;
 
 	$itemObj = $basemodule_item_handler->get($item_id);
 
 	if (!$itemObj->isNew()){
-		$icmsModule->displayAdminMenu(/** IMBUILDING_OBJECT_SORT **/, _AM_BASEMODULE_ITEMS . " > " . _CO_ICMS_EDITING);
+		icms::$module->displayAdminMenu(/** IMBUILDING_OBJECT_SORT **/, _AM_BASEMODULE_ITEMS . " > " . _CO_ICMS_EDITING);
 		$sform = $itemObj->getForm(_AM_BASEMODULE_ITEM_EDIT, "additem");
 		$sform->assign($icmsAdminTpl);
 	} else {
-		$icmsModule->displayAdminMenu(/** IMBUILDING_OBJECT_SORT **/, _AM_BASEMODULE_ITEMS . " > " . _CO_ICMS_CREATINGNEW);
+		icms::$module->displayAdminMenu(/** IMBUILDING_OBJECT_SORT **/, _AM_BASEMODULE_ITEMS . " > " . _CO_ICMS_CREATINGNEW);
 		$sform = $itemObj->getForm(_AM_BASEMODULE_ITEM_CREATE, "additem");
 		$sform->assign($icmsAdminTpl);
 
@@ -83,7 +83,7 @@ if (in_array($clean_op, $valid_op, TRUE)) {
 
 		default:
 			icms_cp_header();
-			$icmsModule->displayAdminMenu(/** IMBUILDING_OBJECT_SORT **/, _AM_BASEMODULE_ITEMS);
+			icms::$module->displayAdminMenu(/** IMBUILDING_OBJECT_SORT **/, _AM_BASEMODULE_ITEMS);
 			$objectTable = new icms_ipf_view_Table($basemodule_item_handler);
 			$objectTable->addColumn(new icms_ipf_view_Column("object_identifier_name"));
 			$objectTable->addIntroButton("additem", "item.php?op=mod", _AM_BASEMODULE_ITEM_CREATE);

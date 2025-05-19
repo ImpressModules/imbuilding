@@ -78,7 +78,9 @@ if (in_array($clean_op, $valid_op, TRUE)){
 		case 'createmodule':
 			icms_cp_header();
 			$moduleObj = $imbuilding_module_handler->get($clean_module_id);
+
             //icms::$module->displayAdminMenu(0, _AM_IMBUILDING_MODULE_GENERATION . ' > ' . $moduleObj->getVar('module_name'));
+
 
 			$moduleObj = $imbuilding_module_handler->get($clean_module_id);
 			$newModule = new mod_imbuilding_Newmodule($moduleObj);
@@ -130,7 +132,9 @@ if (in_array($clean_op, $valid_op, TRUE)){
 
 		default:
 			icms_cp_header();
+
             //icms::$module->displayAdminMenu(0, _AM_IMBUILDING_MODULES);
+
 			$objectTable = new icms_ipf_view_Table($imbuilding_module_handler);
 			$objectTable->addColumn(new icms_ipf_view_Column('module_name', _GLOBAL_LEFT, FALSE, 'getAdminViewItemLink'));
 			$objectTable->addColumn(new icms_ipf_view_Column('author_name'));

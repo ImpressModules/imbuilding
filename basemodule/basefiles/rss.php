@@ -20,12 +20,12 @@ $clean_post_uid = isset($_GET['uid']) ? intval($_GET['uid']) : FALSE;
 
 $basemodule_feed = new icms_feeds_Rss();
 
-$basemodule_feed->title = $icmsConfig['sitename'] . ' - ' . $icmsModule->name();
+$basemodule_feed->title = $icmsConfig['sitename'] . ' - ' . icms::$module->name();
 $basemodule_feed->url = XOOPS_URL;
 $basemodule_feed->description = $icmsConfig['slogan'];
 $basemodule_feed->language = _LANGCODE;
 $basemodule_feed->charset = _CHARSET;
-$basemodule_feed->category = $icmsModule->name();
+$basemodule_feed->category = icms::$module->name();
 
 $basemodule_post_handler = icms_getModuleHandler("post", basename(dirname(__FILE__)), "basemodule");
 //BasemodulePostHandler::getPosts($start = 0, $limit = 0, $post_uid = FALSE, $year = FALSE, $month = FALSE

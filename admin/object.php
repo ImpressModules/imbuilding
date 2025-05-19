@@ -24,7 +24,9 @@ function editobject($object_id = 0, $finishing = FALSE) {
 	$objectObj = $imbuilding_object_handler->get($object_id);
 
 	if (!$objectObj->isNew()){
+
 		//icms::$module->displayAdminMenu(0, _AM_IMBUILDING_OBJECTS . " > " . _CO_ICMS_EDITING);
+
 		if ($finishing) {
 			$objectObj->hideFieldFromForm(array('module_id', 'object_name', 'object_desc', 'object_counter', 'object_dohtml', 'object_dobr', 'object_doimage', 'object_dosmiley', 'object_doxcode', 'enable_seo'));
 			$objectObj->setVar('new_module_wizard', TRUE);
@@ -48,7 +50,9 @@ function editobject($object_id = 0, $finishing = FALSE) {
 		}
 		$objectObj->hideFieldFromForm(array('object_identifier_name', 'object_identifier_desc'));
 		$objectObj->setVar('module_id', $clean_module_id);
+
 		//icms::$module->displayAdminMenu(0, _AM_IMBUILDING_OBJECTS . " > " . _CO_ICMS_CREATINGNEW);
+
 		$sform = $objectObj->getForm(_AM_IMBUILDING_OBJECT_CREATE, 'addobject');
 		$sform->assign($icmsAdminTpl);
 	}
@@ -102,6 +106,7 @@ if (in_array($clean_op, $valid_op, TRUE)){
 			$objectObj = $imbuilding_object_handler->get($clean_object_id);
 
 			icms_cp_header();
+
 			//icms::$module->displayAdminMenu(0, _AM_IMBUILDING_OBJECT_VIEW . ' > ' . $objectObj->getVar('object_name'));
 			$icmsAdminTpl->assign('imbuilding_object_singleview', $objectObj->displaySingleObject(TRUE));
 			$criteria = new icms_db_criteria_Compo();
@@ -118,6 +123,7 @@ if (in_array($clean_op, $valid_op, TRUE)){
 
 		default:
 			icms_cp_header();
+
 			//icms::$module->displayAdminMenu(0, _AM_IMBUILDING_OBJECTS);
 			$objectTable = new icms_ipf_view_Table($imbuilding_object_handler);
 			$objectTable->addColumn(new icms_ipf_view_Column('object_name', _GLOBAL_LEFT, FALSE, 'getAdminViewItemLink'));
