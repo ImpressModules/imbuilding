@@ -17,7 +17,7 @@
  * @param int $field_id Fieldid to be edited
 */
 function editfield($fieldObj) {
-	global $icmsModule, $icmsAdminTpl, $clean_object_id;
+	global $icmsAdminTpl, $clean_object_id;
 
 	$new_module = isset($_GET['newmodule']) ? (int)$_GET['newmodule'] : FALSE;
 
@@ -36,7 +36,7 @@ function editfield($fieldObj) {
 		'params' => array($module_id, $object_id)));
 
 	if (!$fieldObj->isNew()) {
-		$icmsModule->displayAdminMenu(0, _AM_IMBUILDING_FIELDS . " > " . _CO_ICMS_EDITING);
+        icms::$module->displayAdminMenu(0, _AM_IMBUILDING_FIELDS . " > " . _CO_ICMS_EDITING);
 		$sform = $fieldObj->getForm(_AM_IMBUILDING_FIELD_EDIT, 'addfield');
 		$sform->assign($icmsAdminTpl);
 	} else {
@@ -55,7 +55,7 @@ function editfield($fieldObj) {
 		}
 
 		$fieldObj->setVar('object_id', $clean_object_id);
-		$icmsModule->displayAdminMenu(0, _AM_IMBUILDING_FIELDS . " > " . _CO_ICMS_CREATINGNEW);
+        icms::$module->displayAdminMenu(0, _AM_IMBUILDING_FIELDS . " > " . _CO_ICMS_CREATINGNEW);
 		$sform = $fieldObj->getForm(_AM_IMBUILDING_FIELD_CREATE, 'addfield');
 		$sform->assign($icmsAdminTpl);
 	}
@@ -110,7 +110,7 @@ if (in_array($clean_op, $valid_op, TRUE)){
 			$fieldObj = $imbuilding_field_handler->get($clean_field_id);
 
 			icms_cp_header();
-			$icmsModule->displayAdminMenu(0, _AM_IMBUILDING_FIELD_VIEW . ' > ' . $fieldObj->getVar('field_name'));
+            icms::$module->displayAdminMenu(0, _AM_IMBUILDING_FIELD_VIEW . ' > ' . $fieldObj->getVar('field_name'));
 			$icmsAdminTpl->assign('imbuilding_field_singleview', $fieldObj->displaySingleObject(TRUE));
 			$criteria = new icms_db_criteria_Compo();
 			$criteria->add(new icms_db_criteria_Item('field_id', $clean_field_id));
@@ -125,7 +125,7 @@ if (in_array($clean_op, $valid_op, TRUE)){
 
 		default:
 			icms_cp_header();
-			$icmsModule->displayAdminMenu(0, _AM_IMBUILDING_FIELDS);
+            icms::$module->displayAdminMenu(0, _AM_IMBUILDING_FIELDS);
 			$objectTable = new icms_ipf_view_Table($imbuilding_field_handler);
 			$objectTable->addColumn(new icms_ipf_view_Column('field_name', _GLOBAL_LEFT, FALSE, 'getAdminViewItemLink'));
 			$objectTable->addColumn(new icms_ipf_view_Column('author_name'));

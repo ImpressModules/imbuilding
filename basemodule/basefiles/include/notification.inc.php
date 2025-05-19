@@ -22,7 +22,7 @@
  * @return array containing 'name' and 'url' of the related item
  */
 function basemodule_notify_iteminfo($category, $item_id){
-    global $icmsModule, $icmsModuleConfig, $icmsConfig;
+    global $icmsModuleConfig, $icmsConfig;
 
     if ($category == 'global') {
         $item['name'] = '';
